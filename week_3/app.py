@@ -1,6 +1,6 @@
 import json
 
-APP_VERSION = "0.1.0"
+APP_VERSION = "1.0.0"
 MESSAGE = "Hello from week 3, build cache"
 
 
