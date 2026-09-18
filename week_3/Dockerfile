@@ -1,7 +1,7 @@
-FROM python:3.14-slim
-WORKDIR TODO_WORKDIR
-COPY TODO_DEPENDENCY_FILE .
-RUN TODO_INSTALL_COMMAND
-COPY TODO_APPLICATION_FILE .
-EXPOSE TODO_PORT
-CMD TODO_EXEC_FORM_COMMAND
+FROM python:3.12-slim-bookworm
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+EXPOSE 8080
+CMD ["waitress-serve", "--listen=0.0.0.0:8080", "app:app"]
